@@ -4,11 +4,23 @@ from declarations import declarations
 
 def submit_form():
     nome_disc = entry_nome.get()
-    if nome_disc:
-        declarations(nome_disc)
+    cpf = entry_cpf.get()
+    title = entry_title.get()
+    area = entry_area.get()
+    format = entry_format.get()
+
+    if nome_disc and cpf and title and area and format:
+        dados = {
+            'nome_disc': nome_disc,
+            'cpf': cpf,
+            'title': title,
+            'area': area,
+            'format': format
+        }
+        declarations(dados)
         messagebox.showinfo("Sucesso", f"Arquivo editado salvo como: DEFESA {nome_disc}/Declarações {nome_disc}.docx")
     else:
-        messagebox.showwarning("Aviso", "Nenhum nome foi fornecido.")
+        messagebox.showwarning("Aviso", "Todos os campos devem ser preenchidos.")
 
 # Configuração da janela principal
 root = tk.Tk()
@@ -20,25 +32,25 @@ label_nome.pack(pady=5)
 entry_nome = tk.Entry(root, width=100)
 entry_nome.pack(pady=5)
 
-# Label e campo de entrada para o cpf
-label_cpf = tk.Label(root, text="Digite o cpf:")
+# Label e campo de entrada para o CPF
+label_cpf = tk.Label(root, text="Digite o CPF:")
 label_cpf.pack(pady=5)
 entry_cpf = tk.Entry(root, width=100)
 entry_cpf.pack(pady=5)
 
-# Label e campo de entrada para o tile
-label_tile = tk.Label(root, text="Digite o tile:")
-label_tile.pack(pady=5)
-entry_tile = tk.Entry(root, width=100)
-entry_tile.pack(pady=5)
+# Label e campo de entrada para o título
+label_title = tk.Label(root, text="Digite o título:")
+label_title.pack(pady=5)
+entry_title = tk.Entry(root, width=100)
+entry_title.pack(pady=5)
 
-# Label e campo de entrada para a area 
-label_area = tk.Label(root, text="Digite a area:")
+# Label e campo de entrada para a área
+label_area = tk.Label(root, text="Digite a área:")
 label_area.pack(pady=5)
 entry_area = tk.Entry(root, width=100)
 entry_area.pack(pady=5)
 
-# Label e campo de entrada para o format
+# Label e campo de entrada para o formato
 label_format = tk.Label(root, text="Digite o formato:")
 label_format.pack(pady=5)
 entry_format = tk.Entry(root, width=100)
