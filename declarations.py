@@ -1,7 +1,7 @@
 import os
 from docx import Document
 
-def declarations(nome_disc, cpf, title, area, formato):
+def declarations(nome_disc):
     # Caminho do arquivo de template
     caminho_template = os.path.join('template', 'Declarações $nomeDisc.docx')
     
@@ -13,14 +13,11 @@ def declarations(nome_disc, cpf, title, area, formato):
     # Abre o arquivo de template
     doc = Document(caminho_template)
     
-    # Substitui os placeholders pelos valores fornecidos sem alterar a formatação
+    # Substitui $nomeDisc pelo nome fornecido sem alterar a formatação
     for paragrafo in doc.paragraphs:
         for run in paragrafo.runs:
-            run.text = run.text.replace('$nomeDisc', nome_disc)
-            run.text = run.text.replace('$cpf', cpf)
-            run.text = run.text.replace('$title', title)
-            run.text = run.text.replace('$area', area)
-            run.text = run.text.replace('$formato', formato)
+            if '$nomeDisc' in run.text:
+                run.text = run.text.replace('$nomeDisc', nome_disc)
     
     # Cria a nova pasta se ela não existir
     nova_pasta = f'DEFESA {nome_disc}'
