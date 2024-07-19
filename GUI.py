@@ -17,7 +17,7 @@ root.title("Gerador de Declarações")
 # Label e campo de entrada para o nome
 label_nome = tk.Label(root, text="Digite o nome:")
 label_nome.pack(pady=5)
-entry_nome = tk.Entry(root, width=50)
+entry_nome = tk.Entry(root, width=100)
 entry_nome.pack(pady=5)
 
 # Botão de submissão
