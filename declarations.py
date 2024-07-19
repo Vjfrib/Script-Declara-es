@@ -13,12 +13,12 @@ def declarations(dados):
     # Caminho do arquivo de template
     caminho_template = os.path.join('template', 'Declara.docx')
     print(f"Caminho do template: {caminho_template}")
-    
+
     # Verifica se o arquivo de template existe
     if not os.path.exists(caminho_template):
         print(f"O arquivo {caminho_template} não foi encontrado.")
         return
-    
+
     # Abre o arquivo de template
     doc = Document(caminho_template)
     print(f"Documento carregado: {caminho_template}")
@@ -37,26 +37,24 @@ def declarations(dados):
                             .replace('$cpf', cpf)
                             .replace('$title', title)
                             .replace('$area', area)
-                            .replace('$formato', formato))
+                            .replace('$formati', formato))
         
         print(f"Texto modificado: '{texto_modificado}'")
 
-        # Atualizar cada run com o texto modificado
-        for i, run in enumerate(paragrafo.runs):
-            start = sum(len(run.text) for run in paragrafo.runs[:i])
-            end = start + len(run.text)
-            run.text = texto_modificado[start:end]
+        # Atualizar o texto do parágrafo
+        paragrafo.clear()
+        paragrafo.add_run(texto_modificado)
 
     # Cria a nova pasta se ela não existir
     nova_pasta = f'DEFESA {nome_disc}'
     if not os.path.exists(nova_pasta):
         os.makedirs(nova_pasta)
     print(f"Pasta criada: {nova_pasta}")
-    
+
     # Define o caminho do novo arquivo
     novo_caminho_arquivo = os.path.join(nova_pasta, f'Declarações {nome_disc}.docx')
     print(f"Novo caminho do arquivo: {novo_caminho_arquivo}")
-    
+
     # Salva o documento editado
     doc.save(novo_caminho_arquivo)
     print(f"Arquivo editado salvo como: {novo_caminho_arquivo}")
