@@ -7,15 +7,15 @@ def submit_form():
     cpf = entry_cpf.get()
     title = entry_title.get()
     area = entry_area.get()
-    format = entry_format.get()
+    formato = entry_formato.get()
 
-    if nome_disc and cpf and title and area and format:
+    if nome_disc and cpf and title and area and formato:
         dados = {
             'nome_disc': nome_disc,
             'cpf': cpf,
             'title': title,
             'area': area,
-            'format': format
+            'formato': formato
         }
         declarations(dados)
         messagebox.showinfo("Sucesso", f"Arquivo editado salvo como: DEFESA {nome_disc}/Declarações {nome_disc}.docx")
@@ -51,10 +51,10 @@ entry_area = tk.Entry(root, width=100)
 entry_area.pack(pady=5)
 
 # Label e campo de entrada para o formato
-label_format = tk.Label(root, text="Digite o formato:")
-label_format.pack(pady=5)
-entry_format = tk.Entry(root, width=100)
-entry_format.pack(pady=5)
+label_formato = tk.Label(root, text="Digite o formato:")
+label_formato.pack(pady=5)
+entry_formato = tk.Entry(root, width=100)
+entry_formato.pack(pady=5)
 
 # Botão de submissão
 btn_submit = tk.Button(root, text="Gerar Declaração", command=submit_form)
