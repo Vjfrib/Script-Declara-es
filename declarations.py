@@ -18,6 +18,14 @@ def declarations(nome_disc):
         for run in paragrafo.runs:
             if '$nomeDisc' in run.text:
                 run.text = run.text.replace('$nomeDisc', nome_disc)
+            elif '$cpf' in run.text:
+                run.text = run.text.replace('$nomeDisc', nome_disc)
+            elif '$title' in run.text:
+                run.text = run.text.replace('$nomeDisc', nome_disc)
+            elif '$area' in run.text:
+                run.text = run.text.replace('$nomeDisc', nome_disc)
+            elif '$format' in run.text:
+                run.text = run.text.replace('$nomeDisc', nome_disc)
     
     # Cria a nova pasta se ela não existir
     nova_pasta = f'DEFESA {nome_disc}'

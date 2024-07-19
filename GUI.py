@@ -20,6 +20,30 @@ label_nome.pack(pady=5)
 entry_nome = tk.Entry(root, width=100)
 entry_nome.pack(pady=5)
 
+# Label e campo de entrada para o cpf
+label_cpf = tk.Label(root, text="Digite o cpf:")
+label_cpf.pack(pady=5)
+entry_cpf = tk.Entry(root, width=100)
+entry_cpf.pack(pady=5)
+
+# Label e campo de entrada para o tile
+label_tile = tk.Label(root, text="Digite o tile:")
+label_tile.pack(pady=5)
+entry_tile = tk.Entry(root, width=100)
+entry_tile.pack(pady=5)
+
+# Label e campo de entrada para a area 
+label_area = tk.Label(root, text="Digite a area:")
+label_area.pack(pady=5)
+entry_area = tk.Entry(root, width=100)
+entry_area.pack(pady=5)
+
+# Label e campo de entrada para o format
+label_format = tk.Label(root, text="Digite o formato:")
+label_format.pack(pady=5)
+entry_format = tk.Entry(root, width=100)
+entry_format.pack(pady=5)
+
 # Botão de submissão
 btn_submit = tk.Button(root, text="Gerar Declaração", command=submit_form)
 btn_submit.pack(pady=20)
