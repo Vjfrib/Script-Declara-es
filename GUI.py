@@ -10,14 +10,7 @@ def submit_form():
     formato = entry_formato.get()
 
     if nome_disc and cpf and title and area and formato:
-        dados = {
-            'nome_disc': nome_disc,
-            'cpf': cpf,
-            'title': title,
-            'area': area,
-            'formato': formato
-        }
-        declarations(dados)
+        declarations(nome_disc, cpf, title, area, formato)
         messagebox.showinfo("Sucesso", f"Arquivo editado salvo como: DEFESA {nome_disc}/Declarações {nome_disc}.docx")
     else:
         messagebox.showwarning("Aviso", "Todos os campos devem ser preenchidos.")

@@ -1,13 +1,7 @@
 import os
 from docx import Document
 
-def declarations(dados):
-    nome_disc = dados.get('nome_disc')
-    cpf = dados.get('cpf')
-    title = dados.get('title')
-    area = dados.get('area')
-    formato = dados.get('formato')
-
+def declarations(nome_disc, cpf, title, area, formato):
     # Caminho do arquivo de template
     caminho_template = os.path.join('template', 'Declarações $nomeDisc.docx')
     
