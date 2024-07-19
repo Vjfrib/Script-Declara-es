@@ -1,7 +1,7 @@
 import os
 from docx import Document
 
-def editar_arquivo_word(nome_disc):
+def declarations(nome_disc):
     # Caminho do arquivo de template
     caminho_template = os.path.join('template', 'Declarações $nomeDisc.docx')
     
@@ -31,9 +31,3 @@ def editar_arquivo_word(nome_disc):
     doc.save(novo_caminho_arquivo)
     
     print(f"Arquivo editado salvo como: {novo_caminho_arquivo}")
-
-# Solicita o nome ao usuário
-nome_disc = input("Digite o nome: ")
-
-# Edita o arquivo Word com o nome fornecido
-editar_arquivo_word(nome_disc)
